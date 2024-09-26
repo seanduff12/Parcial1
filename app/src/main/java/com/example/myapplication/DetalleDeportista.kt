@@ -1,7 +1,5 @@
 package com.example.myapplication
 
-package com.example.app
-
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
