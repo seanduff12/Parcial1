@@ -9,12 +9,12 @@ import android.widget.ListView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 
-class SelectCountryActivity : AppCompatActivity() {
+class SelectpaisActivity : AppCompatActivity() {
 
     private lateinit var spinner: Spinner
     private lateinit var listView: ListView
 
-    // Lista de deportistas por país
+
     private val colombiaDeportistas = listOf(
         Deportista("James Rodríguez", "Fútbol", false),
         Deportista("Nairo Quintana", "Ciclismo", true),
@@ -61,37 +61,37 @@ class SelectCountryActivity : AppCompatActivity() {
         spinner = findViewById(R.id.spinner)
         listView = findViewById(R.id.listView)
 
-        // Obtener los países de la actividad anterior
-        val country1 = intent.getStringExtra("country1")
-        val country2 = intent.getStringExtra("country2")
-        val country3 = intent.getStringExtra("country3")
-        val countries = listOf(country1, country2, country3)
+        
+        val pais1 = intent.getStringExtra("pais1")
+        val pais2 = intent.getStringExtra("pais2")
+        val pais3 = intent.getStringExtra("pais3")
+        val countries = listOf(pais1, pais2, pais3)
 
-        // Llenar el spinner con los países
+        
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, countries)
         spinner.adapter = adapter
 
-        // Configurar el evento de selección del spinner
+        
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                val selectedCountry = countries[position]
-                val Deportistas = when (selectedCountry) {
-                    country1 -> colombiaDeportistas
-                    country2 -> argentinaDeportistas
-                    country3 -> uruguayDeportistas
+                val selectedpais = countries[position]
+                val Deportistas = when (selectedpais) {
+                    pais1 -> colombiaDeportistas
+                    pais2 -> argentinaDeportistas
+                    pais3 -> uruguayDeportistas
                     else -> emptyList()
                 }
 
                 val names = Deportistas.map { it.name }
 
-                // Actualizar el ListView con los nombres de los deportistas
-                val listAdapter = ArrayAdapter(this@SelectCountryActivity, android.R.layout.simple_list_item_1, names)
+                
+                val listAdapter = ArrayAdapter(this@SelectpaisActivity, android.R.layout.simple_list_item_1, names)
                 listView.adapter = listAdapter
 
-                // Configurar evento de selección de la lista
+                
                 listView.setOnItemClickListener { _, _, i, _ ->
                     val selectedDeportista = Deportistas[i]
-                    val intent = Intent(this@SelectCountryActivity, AthleteDetailActivity::class.java)
+                    val intent = Intent(this@SelectpaisActivity, AthleteDetailActivity::class.java)
                     intent.putExtra("name", selectedDeportista.name)
                     intent.putExtra("sport", selectedDeportista.sport)
                     intent.putExtra("active", selectedDeportista.isActive)
@@ -100,7 +100,7 @@ class SelectCountryActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                // No se necesita implementación
+                
             }
         }
     }

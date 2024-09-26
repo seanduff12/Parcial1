@@ -17,19 +17,19 @@ class AthleteDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_deportista)
 
-        // Inicializar las vistas
+
         nameTextView = findViewById(R.id.nameTextView)
         sportTextView = findViewById(R.id.sportTextView)
         activeTextView = findViewById(R.id.activeStatusTextView)
         athleteImageView = findViewById(R.id.athleteImageView)
         activityStatusImageView = findViewById(R.id.activityStatusImageView)
 
-        // Obtener los datos pasados desde la SelectCountryActivity
+
         val name = intent.getStringExtra("name")
         val sport = intent.getStringExtra("sport")
         val isActive = intent.getBooleanExtra("active", false)
 
-        // Mostrar los datos
+
         nameTextView.text = name
         sportTextView.text = "Deporte: $sport"
         activeTextView.text = if (isActive) "En actividad" else "Retirado"
