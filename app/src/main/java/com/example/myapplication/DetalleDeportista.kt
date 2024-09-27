@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class AthleteDetailActivity : AppCompatActivity() {
+class DetalleDeportistaActivity : AppCompatActivity() {
 
     private lateinit var nameTextView: TextView
     private lateinit var sportTextView: TextView

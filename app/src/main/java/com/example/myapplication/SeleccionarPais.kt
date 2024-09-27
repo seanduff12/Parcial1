@@ -9,7 +9,7 @@ import android.widget.ListView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 
-class SelectpaisActivity : AppCompatActivity() {
+class SeleccionarPaisActivity : AppCompatActivity() {
 
     private lateinit var spinner: Spinner
     private lateinit var listView: ListView
@@ -85,13 +85,13 @@ class SelectpaisActivity : AppCompatActivity() {
                 val names = Deportistas.map { it.name }
 
                 
-                val listAdapter = ArrayAdapter(this@SelectpaisActivity, android.R.layout.simple_list_item_1, names)
+                val listAdapter = ArrayAdapter(this@SeleccionarPaisActivity, android.R.layout.simple_list_item_1, names)
                 listView.adapter = listAdapter
 
                 
                 listView.setOnItemClickListener { _, _, i, _ ->
                     val selectedDeportista = Deportistas[i]
-                    val intent = Intent(this@SelectpaisActivity, AthleteDetailActivity::class.java)
+                    val intent = Intent(this@SeleccionarPaisActivity, DetalleDeportistaActivity::class.java)
                     intent.putExtra("name", selectedDeportista.name)
                     intent.putExtra("sport", selectedDeportista.sport)
                     intent.putExtra("active", selectedDeportista.isActive)

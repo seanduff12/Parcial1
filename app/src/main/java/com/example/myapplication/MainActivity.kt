@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class InputCountriesActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var pais1EditText: EditText
     private lateinit var pais2EditText: EditText
@@ -31,7 +31,7 @@ class InputCountriesActivity : AppCompatActivity() {
             val pais3 = pais3EditText.text.toString()
 
             if (pais1.isNotEmpty() && pais2.isNotEmpty() && pais3.isNotEmpty()) {
-                val intent = Intent(this, SelectpaisActivity::class.java)
+                val intent = Intent(this, SeleccionarPaisActivity::class.java)
                 intent.putExtra("pais1", pais1)
                 intent.putExtra("pais2", pais2)
                 intent.putExtra("pais3", pais3)
